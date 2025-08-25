@@ -35,8 +35,6 @@ x-shared: &shared
   depends_on:
     redis:
       condition: service_healthy
-    postgres:
-      condition: service_healthy
 
 services:
   redis:
