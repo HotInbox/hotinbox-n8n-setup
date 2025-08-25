@@ -37,6 +37,19 @@ x-shared: &shared
       condition: service_healthy
 
 services:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - 443:443
+      - 80:80
+    volumes:
+      - /root/nginx/conf.d:/etc/nginx/conf.d:ro
+      - /root/certs/n8n.crt:/etc/nginx/certs/n8n.crt:ro
+      - /root/certs/n8n.key:/etc/nginx/certs/n8n.key:ro
+    depends_on:
+      - n8n
+    restart: always
+
   redis:
     image: redis:6-alpine
     restart: always
