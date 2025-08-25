@@ -6,13 +6,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ./data/n8n
+      device: /docker/n8n
   redis_storage:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: ./data/redis
+      device: /docker/redis
 
 x-shared: &shared
   restart: always
