@@ -29,6 +29,7 @@ x-shared: &shared
     - QUEUE_HEALTH_CHECK_ACTIVE=true
     - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
     - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+    - GENERIC_TIMEZONE=Asia/Kolkata
   links:
     - redis
   volumes:
@@ -56,6 +57,6 @@ services:
 
   n8n-worker:
     <<: *shared
-    command: ["n8n", "worker", "start"]
+    command: "worker"
     depends_on:
       - n8n
