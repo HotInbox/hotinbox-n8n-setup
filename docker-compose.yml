@@ -2,24 +2,14 @@ version: "3.8"
 
 volumes:
   n8n_storage:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /root/docker/n8n
   redis_storage:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /root/docker/redis
 
 x-shared: &shared
   restart: always
-  image: docker.n8n.io/n8nio/n8n:latest
+  image: docker.n8n.io/n8nio/n8n
   environment:
     - DB_TYPE=postgresdb
-    - DB_POSTGRESDB_HOST=${DB_POSTGRESDB_HOST}
+    - DB_POSTGRESDB_HOST={DB_POSTGRESDB_HOST}
     - DB_POSTGRESDB_PORT=5432
     - DB_POSTGRESDB_DATABASE=${DB_POSTGRESDB_DATABASE}
     - DB_POSTGRESDB_USER=${DB_POSTGRESDB_USER}
@@ -28,8 +18,8 @@ x-shared: &shared
     - QUEUE_BULL_REDIS_HOST=redis
     - QUEUE_HEALTH_CHECK_ACTIVE=true
     - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
-    - GENERIC_TIMEZONE=Asia/Kolkata
   links:
+    - postgres
     - redis
   volumes:
     - n8n_storage:/home/node/.n8n
