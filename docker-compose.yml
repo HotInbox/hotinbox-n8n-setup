@@ -56,6 +56,6 @@ services:
 
   n8n-worker:
     <<: *shared
-    command: ["n8n", "worker"]
+    command: ["n8n", "worker", "start"]
     depends_on:
       - n8n
