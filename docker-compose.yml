@@ -9,7 +9,7 @@ x-shared: &shared
   image: docker.n8n.io/n8nio/n8n
   environment:
     - DB_TYPE=postgresdb
-    - DB_POSTGRESDB_HOST={DB_POSTGRESDB_HOST}
+    - DB_POSTGRESDB_HOST=${DB_POSTGRESDB_HOST}
     - DB_POSTGRESDB_PORT=5432
     - DB_POSTGRESDB_DATABASE=${DB_POSTGRESDB_DATABASE}
     - DB_POSTGRESDB_USER=${DB_POSTGRESDB_USER}
