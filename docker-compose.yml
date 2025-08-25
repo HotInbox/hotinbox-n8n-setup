@@ -56,6 +56,6 @@ services:
 
   n8n-worker:
     <<: *shared
-    command: ["/usr/local/bin/n8n", "worker"]
+    command: worker
     depends_on:
       - n8n
