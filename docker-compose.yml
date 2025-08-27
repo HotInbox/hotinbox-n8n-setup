@@ -41,6 +41,7 @@ x-shared: &shared
     - N8N_EDITOR_BASE_URL=${N8N_EDITOR_BASE_URL}
     - GENERIC_TIMEZONE=Asia/Kolkata
     - N8N_RUNNERS_ENABLED=true
+    - OFFLOAD_MANUAL_EXECUTIONS_TO_WORKERS=true
   links:
     - redis
   volumes:
