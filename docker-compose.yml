@@ -42,6 +42,8 @@ x-shared: &shared
     - GENERIC_TIMEZONE=Asia/Kolkata
     - N8N_RUNNERS_ENABLED=true
     - OFFLOAD_MANUAL_EXECUTIONS_TO_WORKERS=true
+    - N8N_PROXY_HOPS=${N8N_PROXY_HOPS}
+    - NODE_OPTIONS=${NODE_OPTIONS}
   links:
     - redis
   volumes:
